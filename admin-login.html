@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Owner Login | Woodora Living</title>
+    <link rel="stylesheet" href="./assets/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-login-wrapper">
+      <div class="admin-login-card">
+        <h1>Woodora Living</h1>
+        <p>Owner Admin Login</p>
+
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label>Username</label>
+            <input
+              type="text"
+              id="adminUsername"
+              placeholder="Enter username"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              id="adminPassword"
+              placeholder="Enter password"
+              required
+            />
+          </div>
+
+          <button type="submit">Login</button>
+
+          <p id="loginMessage"></p>
+
+          <!-- PURPOSE: Allows owner to return to main website from login page -->
+          <a href="./index.html" class="login-website-link"> View Website </a>
+        </form>
+      </div>
+    </div>
+
+    <script src="./assets/js/admin.js"></script>
+  </body>
+</html>

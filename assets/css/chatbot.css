@@ -1,0 +1,187 @@
+/* PURPOSE: Floating chatbot UI for Woodora Living website */
+
+.chatbot-toggle {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #7a5a39;
+  color: #fff;
+  font-size: 26px;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.chatbot-box {
+  position: fixed;
+  right: 25px;
+  bottom: 95px;
+  width: 350px;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(65, 45, 25, 0.25);
+  display: none;
+}
+
+.chatbot-box.active {
+  display: block;
+}
+
+.chatbot-header {
+  background: #7a5a39;
+  color: #fff;
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.chatbot-close {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.chatbot-messages {
+  height: 300px;
+  padding: 16px;
+  background: #f6f1ea;
+  overflow-y: auto;
+}
+
+.bot-message,
+.user-message {
+  max-width: 80%;
+  padding: 10px 13px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.bot-message {
+  background: #fff;
+  color: #3b2a1f;
+}
+
+.user-message {
+  background: #7a5a39;
+  color: #fff;
+  margin-left: auto;
+}
+
+.chatbot-input-area {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #eee;
+}
+
+.chatbot-input-area input {
+  flex: 1;
+  padding: 11px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+}
+
+.chatbot-input-area button {
+  background: #7a5a39;
+  color: #fff;
+  border: none;
+  padding: 0 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .chatbot-box {
+    width: calc(100% - 30px);
+    right: 15px;
+    bottom: 90px;
+  }
+
+  .chatbot-toggle {
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
+/* PURPOSE: Quick reply buttons inside chatbot */
+.quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+.quick-replies button {
+  background: #fff;
+  color: #7a5a39;
+  border: 1px solid #d8c3aa;
+  padding: 7px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.quick-replies button:hover {
+  background: #7a5a39;
+  color: #fff;
+}
+
+/* PURPOSE: Bot typing indicator */
+.typing-indicator {
+  font-style: italic;
+  color: #777;
+}
+
+/* PURPOSE: Lead confirmation card after WhatsApp number capture */
+.lead-confirmation {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-left: 4px solid #2f855a;
+}
+
+.lead-confirmation strong {
+  color: #2f855a;
+}
+
+/* PURPOSE: Continue or close chatbot after lead submission */
+.post-submit-actions {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.post-submit-actions button {
+  border: none;
+  border-radius: 20px;
+  padding: 8px 13px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#continueChatBtn {
+  background: #7a5a39;
+  color: #fff;
+}
+
+#closeChatBtn {
+  background: #e8ded2;
+  color: #3b2a1f;
+}

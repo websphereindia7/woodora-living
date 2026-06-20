@@ -1,0 +1,780 @@
+/* =========================================================
+   PURPOSE:
+   Styling for Woodora admin login page, owner dashboard,
+   customer enquiry table, chatbot leads table, and tab layout.
+
+   USED IN:
+   assets/css/admin.css
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f6f1ea;
+  color: #3b2a1f;
+}
+
+/* LOGIN PAGE */
+
+.admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 48px;
+  min-height: auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(65, 45, 25, 0.15);
+}
+
+.admin-login-card h1 {
+  text-align: center;
+  color: #7a5a39;
+  margin-bottom: 8px;
+  font-size: 30px;
+}
+
+.admin-login-card p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #777;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #7a5a39;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.admin-login-card button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  background: #7a5a39;
+  color: #fff;
+  font-size: 16px;
+}
+
+.admin-login-card button:hover {
+  background: #5f4328;
+}
+
+#loginMessage {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* DASHBOARD */
+
+.dashboard-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.dashboard-header {
+  background: #fff;
+  padding: 22px 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(65, 45, 25, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.dashboard-header h1 {
+  color: #7a5a39;
+  margin-bottom: 5px;
+}
+
+.dashboard-header p {
+  color: #777;
+}
+
+/* =========================================================
+   PURPOSE:
+   Top dashboard tabs and header action alignment
+========================================================= */
+
+.dashboard-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.dashboard-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f6f1ea;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.dashboard-tab {
+  background: transparent;
+  color: #7a5a39;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.dashboard-tab.active {
+  background: #7a5a39;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(122, 90, 57, 0.18);
+}
+
+.dashboard-tab:hover {
+  background: #e8ded2;
+}
+
+.dashboard-tab.active:hover {
+  background: #7a5a39;
+}
+
+.header-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.website-btn {
+  background: #9b7448;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.website-btn:hover {
+  background: #7b5934;
+}
+
+.logout-btn {
+  background: #3b2a1f;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background: #7a5a39;
+}
+
+/* DASHBOARD STATS */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(65, 45, 25, 0.08);
+}
+
+.stat-card h3 {
+  font-size: 30px;
+  color: #7a5a39;
+  margin-bottom: 6px;
+}
+
+.stat-card p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* TABLE SECTIONS */
+
+.table-section {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(65, 45, 25, 0.08);
+  display: none;
+}
+
+.table-section.active-section {
+  display: block;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.table-header h2 {
+  color: #3b2a1f;
+}
+
+.dashboard-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#searchInput {
+  width: 360px;
+  padding: 11px 14px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  outline: none;
+  font-size: 14px;
+}
+
+#searchInput:focus {
+  border-color: #7a5a39;
+}
+
+#statusFilter {
+  padding: 11px 14px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #3b2a1f;
+  font-size: 14px;
+}
+
+#statusFilter:focus {
+  border-color: #7a5a39;
+}
+
+#searchBtn,
+#clearSearchBtn,
+#refreshBtn,
+#exportPageExcelBtn,
+#exportFilteredExcelBtn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#searchBtn,
+#refreshBtn {
+  background: #8a633f;
+}
+
+#searchBtn:hover,
+#refreshBtn:hover {
+  background: #5f4328;
+}
+
+#clearSearchBtn {
+  background: #4f3727;
+}
+
+#clearSearchBtn:hover {
+  background: #2a1d15;
+}
+
+#exportPageExcelBtn {
+  background: #2f855a;
+}
+
+#exportPageExcelBtn:hover {
+  background: #256d49;
+}
+
+#exportFilteredExcelBtn {
+  background: #1f6f50;
+}
+
+#exportFilteredExcelBtn:hover {
+  background: #18563e;
+}
+
+#dashboardMessage {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1100px;
+}
+
+thead {
+  background: #f6f1ea;
+}
+
+th,
+td {
+  padding: 14px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+th {
+  color: #3b2a1f;
+  font-weight: 700;
+}
+
+td {
+  color: #555;
+}
+
+.message-cell {
+  max-width: 220px;
+  line-height: 1.5;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-new {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-contacted {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-closed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  min-width: 230px;
+}
+
+.action-buttons a,
+.action-buttons button {
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  color: #fff;
+  display: inline-block;
+}
+
+.call-btn {
+  background: #2f855a;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+}
+
+.email-btn {
+  background: #2563eb;
+}
+
+.contacted-btn {
+  background: #7a5a39;
+}
+
+.closed-btn {
+  background: #3b2a1f;
+}
+
+.closed-btn:disabled {
+  background: #8a847d !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  cursor: not-allowed;
+  border: none;
+  filter: none;
+  -webkit-text-fill-color: white;
+  pointer-events: none;
+}
+
+.loading-text,
+.empty-text {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+
+.pagination {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.pagination button {
+  background: #7a5a39;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+.pagination button:disabled {
+  background: #b7b7b7;
+  cursor: not-allowed;
+}
+
+#pageInfo {
+  font-weight: 600;
+  color: #3b2a1f;
+}
+
+/* LOGIN WEBSITE LINK */
+
+.login-website-link {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  margin-bottom: 0;
+  color: #8b643e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-website-link:hover {
+  text-decoration: underline;
+}
+
+#adminLoginForm {
+  margin-bottom: 0;
+}
+
+/* CHATBOT LEADS */
+
+#chatLeadTableBody .action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#chatLeadTableBody td {
+  vertical-align: middle;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .dashboard-top-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 700px) {
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .dashboard-tools {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #searchInput {
+    width: 100%;
+  }
+
+  .dashboard-top-actions,
+  .header-actions,
+  .dashboard-tabs {
+    width: 100%;
+  }
+
+  .dashboard-tabs,
+  .header-actions {
+    justify-content: space-between;
+  }
+
+  .dashboard-tab,
+  .website-btn,
+  .logout-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .dashboard-wrapper {
+    padding: 18px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-login-card {
+    padding: 30px 22px;
+  }
+}
+
+/* =========================================================
+PURPOSE:
+Disable active dashboard tab click feeling
+========================================================= */
+
+.dashboard-tab.active {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* =========================================================
+PURPOSE:
+Style export chatbot leads button
+========================================================= */
+
+#exportChatLeadsExcelBtn {
+  background: #1f6f50;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+
+#exportChatLeadsExcelBtn:hover {
+  background: #18563e;
+}
+
+/* =========================================================
+PURPOSE:
+Small notification badge for dashboard tabs
+========================================================= */
+
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  margin-left: 7px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #c2410c;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dashboard-tab.active .tab-badge {
+  background: #fff;
+  color: #7a5a39;
+}
+
+/* =========================================================
+PURPOSE:
+Mobile polish for Owner Dashboard
+Improve tabs, stats, tables, actions and forms
+========================================================= */
+
+@media (max-width: 768px) {
+  /* Dashboard */
+
+  .dashboard-wrapper {
+    padding: 14px;
+  }
+
+  .dashboard-header {
+    padding: 18px;
+    align-items: stretch;
+  }
+
+  .dashboard-top-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Tabs */
+
+  .dashboard-tabs {
+    width: 100%;
+  }
+
+  .dashboard-tab {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  /* Buttons */
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .website-btn,
+  .logout-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Stats */
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .stat-card h3 {
+    font-size: 24px;
+  }
+
+  /* Filters */
+
+  .dashboard-tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dashboard-tools > * {
+    width: 100%;
+  }
+
+  #searchInput,
+  #statusFilter {
+    width: 100%;
+  }
+
+  /* Table */
+
+  .table-section {
+    padding: 16px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 850px;
+  }
+
+  /* Action Buttons */
+
+  .action-buttons {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    min-width: auto;
+  }
+
+  .action-buttons a,
+  .action-buttons button {
+    white-space: nowrap;
+  }
+
+  /* Pagination */
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Notification badges */
+
+  .tab-badge {
+    min-width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+}
+
+/* Extra small devices */
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+
+  .table-header h2 {
+    font-size: 20px;
+  }
+
+  .stat-card {
+    text-align: center;
+  }
+
+  .dashboard-tab {
+    font-size: 12px;
+  }
+}

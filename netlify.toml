@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://woodora-living.onrender.com/api/:splat"
+  status = 200
+  force = true
+  

@@ -1,0 +1,189 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <!-- PURPOSE: Owner dashboard page for viewing, filtering, updating, and exporting enquiries -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Owner Dashboard | Woodora Living</title>
+    <link rel="stylesheet" href="./assets/css/admin.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-wrapper">
+      <header class="dashboard-header">
+        <div>
+          <h1>Woodora Living</h1>
+          <p>Owner Enquiry Dashboard</p>
+        </div>
+
+        <!-- ===================================================
+        PURPOSE:
+        Toggle between Customer Enquiries and Chatbot Leads
+        =================================================== -->
+
+        <div class="dashboard-top-actions">
+          <div class="dashboard-tabs">
+            <!-- PURPOSE: Customer enquiry tab with pending count badge -->
+            <button id="customerTab" class="dashboard-tab active">
+              Customer Enquiries
+              <span id="customerBadge" class="tab-badge">0</span>
+            </button>
+
+            <!-- PURPOSE: Chatbot leads tab with pending count badge -->
+            <button id="chatbotTab" class="dashboard-tab">
+              Chatbot Leads
+              <span id="chatbotBadge" class="tab-badge">0</span>
+            </button>
+          </div>
+
+          <div class="header-actions">
+            <a href="./index.html" class="website-btn"> View Website </a>
+
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="dashboard-stats">
+        <div class="stat-card">
+          <h3 id="totalCount">0</h3>
+          <p>Total Enquiries</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="newCount">0</h3>
+          <p>New</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="contactedCount">0</h3>
+          <p>Contacted</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="closedCount">0</h3>
+          <p>Closed</p>
+        </div>
+      </section>
+
+      <!-- ===================================================
+      PURPOSE:
+      Customer enquiries section
+      =================================================== -->
+
+      <section class="table-section active-section" id="customerSection">
+        <div class="table-header">
+          <h2>Customer Enquiries</h2>
+
+          <div class="dashboard-tools">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search name, phone, email, requirement..."
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+            />
+
+            <select id="statusFilter">
+              <option value="All">All</option>
+              <option value="New">New</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Closed">Closed</option>
+            </select>
+
+            <button id="searchBtn">Search</button>
+            <button id="clearSearchBtn">Clear</button>
+
+            <!-- PURPOSE: Export only current visible page records -->
+            <button id="exportPageExcelBtn">Export Page</button>
+
+            <!-- PURPOSE: Export all filtered/search records across pages -->
+            <button id="exportFilteredExcelBtn">Export Filtered</button>
+
+            <button id="refreshBtn">Refresh</button>
+          </div>
+        </div>
+
+        <div id="dashboardMessage"></div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Requirement</th>
+                <th>Message</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="enquiryTableBody">
+              <tr>
+                <td colspan="8" class="loading-text">Loading enquiries...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination" id="pagination">
+          <button id="prevPageBtn">Previous</button>
+          <span id="pageInfo">Page 1 of 1</span>
+          <button id="nextPageBtn">Next</button>
+        </div>
+      </section>
+
+      <!-- ==================================================
+      PURPOSE:
+      Show chatbot WhatsApp leads submitted from website
+      Owner can later contact and manage status
+      ================================================== -->
+
+      <section class="table-section chatbot-section" id="chatbotSection">
+        <!-- ==================================================
+PURPOSE:
+Chatbot leads heading with Excel export button
+================================================== -->
+
+        <div class="table-header">
+          <h2>Chatbot Leads</h2>
+
+          <div class="dashboard-tools">
+            <button id="exportChatLeadsExcelBtn">Export Chat Leads</button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>WhatsApp</th>
+                <th>Question</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="chatLeadTableBody">
+              <tr>
+                <td colspan="5" class="loading-text">
+                  Loading chatbot leads...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+    <script src="./assets/js/admin.js"></script>
+  </body>
+</html>
