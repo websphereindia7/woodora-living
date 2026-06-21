@@ -1,172 +1,145 @@
 ```html
 <!doctype html>
 <html lang="en">
- 
-<head>
+  <head>
+    <meta charset="UTF-8" />
 
-  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <meta
-    http-equiv="X-UA-Compatible"
-    content="IE=edge"
-  />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+    <title>Furniture Blogs & Buying Guides | Woodora Living</title>
 
-  <title>
-    Furniture Blogs & Buying Guides | Woodora Living
-  </title>
+    <meta
+      name="description"
+      content="Explore furniture buying guides, design ideas, wood care tips, and home styling advice from Woodora Living."
+    />
 
-  <meta
-    name="description"
-    content="Explore furniture buying guides, design ideas, wood care tips, and home styling advice from Woodora Living."
-  />
+    <meta
+      name="keywords"
+      content="furniture blog, sofa guide, dining ideas, furniture care, interior styling"
+    />
 
-  <meta
-    name="keywords"
-    content="furniture blog, sofa guide, dining ideas, furniture care, interior styling"
-  />
+    <meta name="robots" content="index, follow" />
 
-  <meta
-    name="robots"
-    content="index, follow"
-  />
+    <meta
+      property="og:title"
+      content="Furniture Blogs & Buying Guides | Woodora Living"
+    />
 
-  <meta
-    property="og:title"
-    content="Furniture Blogs & Buying Guides | Woodora Living"
-  />
+    <meta
+      property="og:description"
+      content="Helpful furniture ideas, buying guides, and home styling inspiration."
+    />
 
-  <meta
-    property="og:description"
-    content="Helpful furniture ideas, buying guides, and home styling inspiration."
-  />
+    <meta property="og:image" content="./assets/images/blog-1.webp" />
 
-  <meta
-    property="og:image"
-    content="./assets/images/blog-1.webp"
-  />
+    <meta property="og:type" content="website" />
 
-  <meta
-    property="og:type"
-    content="website"
-  />
+    <meta property="og:site_name" content="Woodora Living" />
 
-  <meta
-    property="og:site_name"
-    content="Woodora Living"
-  />
+    <meta property="og:locale" content="en_IN" />
 
-  <meta
-    property="og:locale"
-    content="en_IN"
-  />
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
 
-  <link
-    rel="shortcut icon"
-    href="./favicon.svg"
-    type="image/svg+xml"
-  />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Rosario:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins&family=Rosario:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link
-    rel="stylesheet"
-    href="./assets/css/style.css"
-  />
-
-</head>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
   <body>
     <!-- HEADER -->
     <!-- Inner page header: keeps logo and menu consistent with homepage -->
-<header class="header" data-header>
-  <div class="container">
-    <a href="index.html#home" class="logo">
-      <img src="./assets/images/woodora-logo.webp" alt="Woodora Logo" />
+    <header class="header" data-header>
+      <div class="container">
+        <a href="index.html#home" class="logo">
+          <img src="./assets/images/woodora-logo.webp" alt="Woodora Logo" />
 
-      <div class="logo-text">
-        <span class="logo-main">WOODORA</span>
-        <span class="logo-sub">LIVING</span>
+          <div class="logo-text">
+            <span class="logo-main">WOODORA</span>
+            <span class="logo-sub">LIVING</span>
+          </div>
+        </a>
+
+        <nav class="navbar" data-navbar>
+          <button
+            class="nav-close-btn"
+            aria-label="close menu"
+            data-nav-toggler
+          >
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+          <ul class="navbar-list">
+            <li>
+              <a href="index.html#home" class="navbar-link">Home</a>
+            </li>
+
+            <li>
+              <a href="index.html#about" class="navbar-link">About</a>
+            </li>
+
+            <!-- Inner page collections dropdown: matches homepage navigation -->
+            <li class="navbar-dropdown">
+              <button class="navbar-link dropdown-toggle" type="button">
+                Collections
+                <ion-icon
+                  name="chevron-down-outline"
+                  aria-hidden="true"
+                ></ion-icon>
+              </button>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="index.html#collection" class="dropdown-link"
+                    >All Collections</a
+                  >
+                </li>
+
+                <li>
+                  <a href="index.html#best-seller" class="dropdown-link"
+                    >Best Sellers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="index.html#gallery" class="navbar-link">Projects</a>
+            </li>
+
+            <li>
+              <a href="index.html#why-choose-us" class="navbar-link"
+                >Why Choose Us</a
+              >
+            </li>
+
+            <li>
+              <a href="index.html#blog" class="navbar-link">Blog</a>
+            </li>
+
+            <li>
+              <a href="index.html#contact" class="btn navbar-btn">
+                <span class="span">Free Consultation</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
       </div>
-    </a>
-
-    <nav class="navbar" data-navbar>
-      <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
-        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-      </button>
-
-      <ul class="navbar-list">
-        <li>
-          <a href="index.html#home" class="navbar-link">Home</a>
-        </li>
-
-        <li>
-          <a href="index.html#about" class="navbar-link">About</a>
-        </li>
-
-    <!-- Inner page collections dropdown: matches homepage navigation -->
-<li class="navbar-dropdown">
-  <button class="navbar-link dropdown-toggle" type="button">
-    Collections
-    <ion-icon name="chevron-down-outline" aria-hidden="true"></ion-icon>
-  </button>
-
-  <ul class="dropdown-menu">
-    <li>
-      <a href="index.html#collection" class="dropdown-link">All Collections</a>
-    </li>
-
-    <li>
-      <a href="index.html#best-seller" class="dropdown-link">Best Sellers</a>
-    </li>
-  </ul>
-</li>
-
-        <li>
-          <a href="index.html#gallery" class="navbar-link">Projects</a>
-        </li>
-
-        <li>
-          <a href="index.html#why-choose-us" class="navbar-link">Why Choose Us</a>
-        </li>
-
-        <li>
-          <a href="index.html#blog" class="navbar-link">Blog</a>
-        </li>
-
-        <li>
-          <a href="index.html#contact" class="btn navbar-btn">
-            <span class="span">Free Consultation</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-      <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-    </button>
-
-    <div class="overlay" data-nav-toggler data-overlay></div>
-  </div>
-</header>
+    </header>
 
     <main>
       <article>
@@ -187,9 +160,6 @@
         <!-- BLOG LISTING -->
         <section class="section blog-listing-section">
           <div class="container">
-            <div class="blog-page-top">
-              
-
             <div class="blog-page-grid">
               <a href="sofa-buying-guide.html" class="blog-card">
                 <figure class="card-banner img-holder">
@@ -295,58 +265,58 @@
                 </div>
               </a>
 
-<a href="wardrobe-design-ideas.html" class="blog-card">
-  <figure class="card-banner img-holder">
-    <img
-      src="./assets/images/blog-5.webp"
-      loading="lazy"
-      alt="Wardrobe design ideas"
-      class="img-cover"
-    />
-  </figure>
+              <a href="wardrobe-design-ideas.html" class="blog-card">
+                <figure class="card-banner img-holder">
+                  <img
+                    src="./assets/images/blog-5.webp"
+                    loading="lazy"
+                    alt="Wardrobe design ideas"
+                    class="img-cover"
+                  />
+                </figure>
 
-  <div class="card-content">
-    <p class="blog-category">Storage Ideas</p>
+                <div class="card-content">
+                  <p class="blog-category">Storage Ideas</p>
 
-    <h2 class="h4 card-title">
-      Wardrobe Design Ideas for Modern Homes
-    </h2>
+                  <h2 class="h4 card-title">
+                    Wardrobe Design Ideas for Modern Homes
+                  </h2>
 
-    <p class="blog-excerpt">
-      Explore wardrobe layouts, finishes, and storage ideas that keep bedrooms
-      organized, elegant, and easy to use.
-    </p>
+                  <p class="blog-excerpt">
+                    Explore wardrobe layouts, finishes, and storage ideas that
+                    keep bedrooms organized, elegant, and easy to use.
+                  </p>
 
-    <span class="blog-read">Read Article →</span>
-  </div>
-</a>
+                  <span class="blog-read">Read Article →</span>
+                </div>
+              </a>
 
-<a href="tv-unit-design-ideas.html" class="blog-card">
-  <figure class="card-banner img-holder">
-    <img
-      src="./assets/images/blog-6.webp"
-      loading="lazy"
-      alt="TV unit design ideas"
-      class="img-cover"
-    />
-  </figure>
+              <a href="tv-unit-design-ideas.html" class="blog-card">
+                <figure class="card-banner img-holder">
+                  <img
+                    src="./assets/images/blog-6.webp"
+                    loading="lazy"
+                    alt="TV unit design ideas"
+                    class="img-cover"
+                  />
+                </figure>
 
-  <div class="card-content">
-    <p class="blog-category">Living Room Ideas</p>
+                <div class="card-content">
+                  <p class="blog-category">Living Room Ideas</p>
 
-    <h2 class="h4 card-title">
-      TV Unit Design Ideas for Stylish Living Rooms
-    </h2>
+                  <h2 class="h4 card-title">
+                    TV Unit Design Ideas for Stylish Living Rooms
+                  </h2>
 
-    <p class="blog-excerpt">
-      Discover TV unit styles, storage options, and wall design ideas that make
-      your living room look clean, modern, and complete.
-    </p>
+                  <p class="blog-excerpt">
+                    Discover TV unit styles, storage options, and wall design
+                    ideas that make your living room look clean, modern, and
+                    complete.
+                  </p>
 
-    <span class="blog-read">Read Article →</span>
-  </div>
-</a>
-
+                  <span class="blog-read">Read Article →</span>
+                </div>
+              </a>
             </div>
           </div>
         </section>

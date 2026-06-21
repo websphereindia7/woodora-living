@@ -225,12 +225,6 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .trusted-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* PROJECT MODAL: more designs overlay */
 
 .project-design-lightbox {
@@ -1418,16 +1412,6 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .gallery-list {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-card {
-    height: 260px;
-  }
-}
-
 /*-----------------------------------*\
   #BLOG
 \*-----------------------------------*/
@@ -2526,7 +2510,6 @@ body {
 }
 
 
-
 /* TESTIMONIALS: refined customer stories carousel */
 
 .testimonials {
@@ -2815,24 +2798,17 @@ body {
 
 .best-seller-list {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 22px;
-
   margin-top: 0;
 }
 
 .best-seller-card {
   min-height: 420px;
   background-color: var(--white);
-
   border-radius: 28px;
-
   overflow: hidden;
-
   box-shadow: 0 14px 40px hsla(0, 0%, 0%, 0.06);
-
   transition: var(--transition-2);
 }
 
@@ -2905,15 +2881,7 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .best-seller-list {
-    grid-template-columns: 1fr;
-  }
 
-  .best-seller-card img {
-    height: 230px;
-  }
-}
 
 /* ==================================================
    FINAL SAFE MOBILE FIX - WOODORA
@@ -3323,12 +3291,6 @@ body {
   line-height: 1.55;
 }
 
-.blog-card {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
 .blog-read {
   display: inline-block;
   margin-top: 14px;
@@ -3355,19 +3317,7 @@ body {
   BLOG PAGE
 \*-----------------------------------*/
 
-.blog-page-hero{
-padding-top:170px;
 
-padding-bottom:35px;
-
-background:
-linear-gradient(
-180deg,
-rgba(246,239,232,.95),
-rgba(255,255,255,.96));
-
-text-align:center;
-}
 
   text-align: center;
 }
@@ -3415,9 +3365,7 @@ text-align:center;
 
 .blog-page-grid {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
   gap: 32px;
 }
 
@@ -3457,9 +3405,7 @@ text-align:center;
 
 .blog-excerpt {
   margin-top: 14px;
-
   line-height: 1.9;
-
   color: #6d6259;
 }
 
@@ -3485,10 +3431,6 @@ text-align:center;
 @media (max-width: 768px) {
   .blog-page-hero {
     padding-top: 150px;
-  }
-
-  .blog-page-grid {
-    grid-template-columns: 1fr;
   }
 
   .blog-search-box input {
@@ -3566,7 +3508,6 @@ margin-bottom:12px;
 
 .article-hero{
   padding-top:150px;
-
   padding-bottom:35px;
 }
 
@@ -4127,4 +4068,463 @@ justify-content:center;
   flex-shrink: 0;
 }
 
+/* MOBILE RESPONSIVENESS: final targeted homepage hero fix only */
+@media (max-width: 767px) {
+  .hero-title,
+  .hero .h1 {
+    color: var(--french-bistre) !important;
+  }
 
+  .hero-title span,
+  .hero .h1 span {
+    color: var(--camel) !important;
+  }
+
+  .hero-scroll-window {
+    display: none !important;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: homepage section layout cleanup */
+@media (max-width: 767px) {
+  .collection {
+    min-height: auto;
+    display: block;
+    padding-block: 55px;
+  }
+
+  .collection-header,
+  .blog-header,
+  .testimonial-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .collection-arrows {
+    margin-inline: auto;
+  }
+
+  .collection-list,
+  .blog-slider {
+    grid-auto-columns: 100%;
+    gap: 18px;
+  }
+
+  .collection-card {
+    height: 360px;
+    border-radius: 24px;
+  }
+
+  .best-seller {
+    margin-top: 0;
+    padding-block: 60px;
+  }
+
+  .best-seller-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .best-seller-card {
+    min-height: auto;
+  }
+
+  .best-seller-card img {
+    height: 230px;
+  }
+
+  .gallery {
+    padding-top: 55px;
+    padding-bottom: 75px;
+  }
+
+  .gallery-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .gallery-card {
+    height: 260px;
+  }
+
+  .testimonial-list {
+    gap: 18px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 100%;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: reduce Best Selling card height on mobile only */
+@media (max-width: 767px) {
+  .best-seller {
+    margin-top: 0;
+    padding-block: 55px;
+  }
+
+  .best-seller-list {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .best-seller-card {
+    min-height: auto !important;
+  }
+
+  .best-seller-card img {
+    height: 210px !important;
+    object-fit: cover;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: reduce extra vertical gaps in homepage mobile sections */
+@media (max-width: 767px) {
+  .section {
+    padding-block: 55px;
+  }
+
+  .gallery {
+    padding-bottom: 65px;
+  }
+
+  .trusted {
+    padding-block: 55px;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: blog listing and article pages layout cleanup */
+@media (max-width: 991px) {
+  .blog-page-hero {
+    padding-top: 135px;
+    padding-bottom: 45px;
+  }
+
+  .article-hero {
+    padding-top: 135px;
+    padding-bottom: 45px;
+  }
+
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article-sidebar {
+    order: 2;
+  }
+
+  .cta-banner-box {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner-content {
+    text-align: center;
+    align-items: center;
+    padding: 42px 30px;
+  }
+
+  .cta-banner-image,
+  .cta-banner-image img {
+    min-height: 280px;
+  }
+}
+
+
+/* MOBILE RESPONSIVENESS: sofa article page readable spacing */
+@media (max-width: 767px) {
+  .article-hero {
+    padding-top: 115px;
+    padding-bottom: 35px;
+    text-align: center;
+  }
+
+  .breadcrumb {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .article-title {
+    font-size: 3.6rem;
+    line-height: 1.18;
+  }
+
+  .article-intro {
+    font-size: 1.45rem;
+    line-height: 1.75;
+  }
+
+  .article-cover {
+    height: 240px;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  .article-section {
+    padding-top: 50px;
+    padding-bottom: 55px;
+  }
+
+  .article-content h2 {
+    font-size: 2.5rem;
+    line-height: 1.25;
+  }
+
+  .article-content p {
+    line-height: 1.8;
+  }
+
+  .article-tip-box,
+  .sidebar-card {
+    border-radius: 20px;
+  }
+
+  .related-articles {
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+
+  .blog-page-cta {
+    padding-top: 15px;
+    padding-bottom: 65px;
+  }
+
+  .cta-banner-box {
+    border-radius: 24px;
+  }
+
+  .cta-banner-title {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  .cta-banner-text {
+    line-height: 1.7;
+  }
+
+  .cta-banner-image,
+  .cta-banner-image img {
+    min-height: 240px;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: keep complete homepage hero heading visible */
+@media (max-width: 767px) {
+  #home .hero-title,
+  #home .hero-title *,
+  #home .h1,
+  #home .h1 * {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  #home .hero-title,
+  #home .h1 {
+    color: var(--french-bistre) !important;
+  }
+
+  #home .hero-title span,
+  #home .h1 span {
+    color: var(--camel) !important;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: prevent sticky header from covering hero heading */
+@media (max-width: 767px) {
+  #home {
+    scroll-margin-top: 95px;
+  }
+
+  .hero {
+    padding-top: 115px;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: keep complete homepage hero heading visible */
+@media (max-width: 767px) {
+  #home .hero-title,
+  #home .h1 {
+    color: var(--french-bistre) !important;
+  }
+
+  #home .hero-title span,
+  #home .h1 span {
+    color: var(--camel) !important;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: keep blog listing cards complete and readable on mobile */
+@media (max-width: 767px) {
+  .blog-page-hero {
+    padding-top: 95px !important;
+    padding-bottom: 35px !important;
+  }
+
+  .blog-page-title {
+    font-size: 3rem !important;
+    line-height: 1.18 !important;
+    text-align: center !important;
+  }
+
+  .blog-listing-section {
+    padding-top: 25px !important;
+    padding-bottom: 35px !important;
+  }
+
+  .blog-page-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .blog-page-grid > .blog-card {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border-radius: 20px !important;
+  }
+
+  .blog-page-grid > .blog-card > .card-banner,
+  .blog-page-grid > .blog-card > .card-banner.img-holder {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 16 / 10 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    border-radius: 20px 20px 0 0 !important;
+  }
+
+  .blog-page-grid > .blog-card > .card-banner img,
+  .blog-page-grid > .blog-card > .card-banner .img-cover {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transform: none !important;
+  }
+
+  .blog-page-grid > .blog-card > .card-content {
+    display: block !important;
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 16px 16px 18px !important;
+    overflow: visible !important;
+    background: var(--white) !important;
+    border-radius: 0 0 20px 20px !important;
+    text-align: left !important;
+  }
+
+  .blog-page-grid .blog-category {
+    font-size: 1.15rem !important;
+    margin: 0 0 6px !important;
+    text-align: center !important;
+  }
+
+  .blog-page-grid .card-title {
+    display: block !important;
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+    margin: 0 0 8px !important;
+  }
+
+  .blog-page-grid .blog-excerpt {
+    display: block !important;
+    font-size: 1.3rem !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+  }
+
+  .blog-page-grid .blog-read {
+    display: inline-block !important;
+    margin-top: 10px !important;
+    font-size: 1.3rem !important;
+  }
+
+  .blog-listing-cta {
+    padding-top: 35px !important;
+    padding-bottom: 55px !important;
+  }
+}
+
+/* MOBILE RESPONSIVENESS: tighten sofa article page spacing on mobile */
+@media (max-width: 767px) {
+  .article-hero {
+    padding-top: 95px !important;
+    padding-bottom: 30px !important;
+    text-align: center !important;
+  }
+
+  .article-title {
+    font-size: 3rem !important;
+    line-height: 1.18 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .article-intro {
+    font-size: 1.35rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .article-cover {
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    margin-top: 22px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+
+  .article-cover img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .article-section {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .article-content h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .article-content p,
+  .article-content li {
+    font-size: 1.35rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .article-tip-box {
+    margin-block: 24px !important;
+    padding: 22px !important;
+    border-radius: 18px !important;
+  }
+
+  .article-sidebar {
+    margin-top: 25px !important;
+  }
+
+  .related-articles {
+    padding-top: 45px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .blog-page-cta {
+    padding-top: 20px !important;
+    padding-bottom: 55px !important;
+  }
+}
