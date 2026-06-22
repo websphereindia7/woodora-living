@@ -43,6 +43,31 @@ function getTypingDelay(message) {
 
 const chatbotFAQs = [
   {
+    keywords: [
+      "hello",
+      "hi",
+      "hey",
+      "good morning",
+      "good afternoon",
+      "good evening",
+    ],
+    answer:
+      "Hello, this is Kumar from Woodora. How can I help you with your furniture requirement?",
+  },
+
+  {
+    keywords: [
+      "your name",
+      "what is your name",
+      "who are you",
+      "who is this",
+      "kumar",
+    ],
+    answer:
+      "I'm Kumar from Woodora. I can help you with furniture options, pricing, delivery, showroom details, and consultation.",
+  },
+
+  {
     keywords: ["custom", "customize", "customized", "made to order"],
     answer:
       "Yes, we provide custom furniture solutions based on your room size, style, finish, and requirement.",
@@ -87,7 +112,7 @@ const chatbotFAQs = [
   },
 
   {
-    keywords: ["office", "desk", "chair", "workspace"],
+    keywords: ["office", "desk", "office chair", "workspace"],
     answer:
       "Yes, we provide office furniture such as desks, chairs, storage units, and workspace furniture.",
   },
@@ -107,13 +132,14 @@ const chatbotFAQs = [
       "colour",
       "finish",
       "polish",
+      "fabric",
     ],
     answer:
       "Our furniture is available in different materials, wood finishes, polish options, fabrics, and color tones based on your requirement.",
   },
 
   {
-    keywords: ["measurement", "measurements", "room size", "size"],
+    keywords: ["measurement", "measurements", "room size", "size", "dimension"],
     answer:
       "Furniture size can be planned according to your room measurements. You can share room dimensions with our team for guidance.",
   },
@@ -127,6 +153,7 @@ const chatbotFAQs = [
       "quotation",
       "quote",
       "estimate",
+      "budget",
     ],
     answer:
       "Pricing depends on furniture type, size, material, finish, and customization. Please share your requirement for an accurate quotation.",
@@ -139,7 +166,7 @@ const chatbotFAQs = [
   },
 
   {
-    keywords: ["installation", "assembly", "setup"],
+    keywords: ["installation", "assembly", "setup", "fitting"],
     answer:
       "Yes, installation and setup support can be provided depending on the furniture category and order requirement.",
   },
@@ -162,16 +189,30 @@ const chatbotFAQs = [
       "visit",
       "location",
       "address",
+      "shop address",
+      "store address",
       "mumbai",
       "thane",
       "navi mumbai",
     ],
     answer:
-      "Woodora Living is based in Mumbai. Please contact our team to confirm showroom visit details, delivery, or service availability for your location.",
+      "Woodora Living is based in Mulund (West), Mumbai. Please contact our team to confirm showroom visit details, delivery, or service availability for your location.",
   },
 
   {
-    keywords: ["catalog", "catalogue", "brochure", "designs"],
+    keywords: ["timing", "timings", "open", "closing time", "working hours"],
+    answer:
+      "Our usual working hours are Monday to Saturday, 10:00 AM to 8:00 PM. Sunday is closed.",
+  },
+
+  {
+    keywords: ["cash", "payment", "upi", "card", "bank transfer"],
+    answer:
+      "Payment options can be discussed with our team based on your order type. We can guide you with the available payment methods during booking.",
+  },
+
+  {
+    keywords: ["catalog", "catalogue", "brochure", "designs", "product list"],
     answer:
       "You can explore furniture designs on our website. For more options, our team can suggest suitable designs based on your requirement.",
   },
@@ -340,37 +381,63 @@ function getBotReply(userText) {
 
 async function captureWhatsappNumber(userText) {
   const cleanedNumber = userText.replace(/\D/g, "");
+  const looksLikePhoneNumber = /\d/.test(userText);
 
-  if (cleanedNumber.length < 10 || cleanedNumber.length > 13) {
+  if (cleanedNumber.length >= 10 && cleanedNumber.length <= 13) {
+    waitingForWhatsapp = false;
+    leadSubmitted = true;
+
+    hideQuickReplies();
+    showTypingIndicator();
+
+    const isSaved = await saveChatLeadToBackend(
+      cleanedNumber,
+      lastUnansweredQuestion,
+    );
+
+    setTimeout(() => {
+      removeTypingIndicator();
+
+      if (isSaved) {
+        showLeadConfirmation();
+        showPostSubmitActions();
+      } else {
+        addMessage(
+          "Your number was received, but we could not save it right now. Please use the Contact Us form if needed.",
+          "bot-message",
+        );
+      }
+    }, BOT_REPLY_DELAY);
+
+    return;
+  }
+
+  if (looksLikePhoneNumber) {
     addMessage("Please enter a valid WhatsApp number.", "bot-message");
     return;
   }
 
   waitingForWhatsapp = false;
-  leadSubmitted = true;
 
-  hideQuickReplies();
+  const botReply = getBotReply(userText);
+  const typingDelay = getTypingDelay(botReply.answer);
 
   showTypingIndicator();
 
-  const isSaved = await saveChatLeadToBackend(
-    cleanedNumber,
-    lastUnansweredQuestion,
-  );
-
   setTimeout(() => {
     removeTypingIndicator();
+    addMessage(botReply.answer, "bot-message");
 
-    if (isSaved) {
-      showLeadConfirmation();
-      showPostSubmitActions();
-    } else {
+    if (botReply.askWhatsapp && !leadSubmitted) {
+      waitingForWhatsapp = true;
+      lastUnansweredQuestion = userText;
+
       addMessage(
-        "Your number was received, but we could not save it right now. Please use the Contact Us form if needed.",
+        "If you would like our team to contact you, please share your WhatsApp number. You can also continue asking questions here.",
         "bot-message",
       );
     }
-  }, BOT_REPLY_DELAY);
+  }, typingDelay);
 }
 
 /* =========================================================

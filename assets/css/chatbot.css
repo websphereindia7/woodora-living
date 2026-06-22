@@ -144,9 +144,21 @@
 }
 
 /* PURPOSE: Bot typing indicator */
-.typing-indicator {
+/* .typing-indicator {
   font-style: italic;
   color: #777;
+} */
+
+/* PURPOSE: Shows Kumar typing without a message bubble background */
+.typing-indicator {
+  background: transparent;
+  padding: 0 4px;
+  margin: 4px 0 12px;
+  font-style: italic;
+  /* color: #8a7c70; */
+  color: #7a5a39;
+  /* opacity: 0.95; */
+  box-shadow: none;
 }
 
 /* PURPOSE: Lead confirmation card after WhatsApp number capture */
