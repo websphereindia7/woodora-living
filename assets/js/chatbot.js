@@ -20,9 +20,26 @@ const chatbotMessages = document.getElementById("chatbotMessages");
 const chatbotInput = document.getElementById("chatbotInput");
 const chatbotSend = document.getElementById("chatbotSend");
 
+const MIN_TYPING_DELAY = 2500;
+const MAX_TYPING_DELAY = 6500;
+const TYPING_SPEED_PER_CHARACTER = 35;
+
+const BOT_REPLY_DELAY = 4500;
+let botIsTyping = false;
+
 let waitingForWhatsapp = false;
 let leadSubmitted = false;
 let lastUnansweredQuestion = "";
+
+function getTypingDelay(message) {
+  const randomExtraDelay = Math.floor(Math.random() * 900);
+  const estimatedDelay = message.length * TYPING_SPEED_PER_CHARACTER;
+
+  return Math.min(
+    MAX_TYPING_DELAY,
+    Math.max(MIN_TYPING_DELAY, estimatedDelay + randomExtraDelay),
+  );
+}
 
 const chatbotFAQs = [
   {
@@ -244,6 +261,8 @@ if (chatbotMessages) {
 ========================================================= */
 
 function handleUserMessage(customText = "") {
+  if (botIsTyping) return;
+
   const userText = customText || chatbotInput.value.trim();
 
   if (!userText) return;
@@ -259,12 +278,13 @@ function handleUserMessage(customText = "") {
     return;
   }
 
+  const botReply = getBotReply(userText);
+  const typingDelay = getTypingDelay(botReply.answer);
+
   showTypingIndicator();
 
   setTimeout(() => {
     removeTypingIndicator();
-
-    const botReply = getBotReply(userText);
 
     addMessage(botReply.answer, "bot-message");
 
@@ -272,12 +292,12 @@ function handleUserMessage(customText = "") {
       waitingForWhatsapp = true;
       lastUnansweredQuestion = userText;
 
-      addMessage(
-        "Please type your WhatsApp number here and our team will contact you shortly.",
-        "bot-message",
-      );
+      const whatsappMessage =
+        "Please type your WhatsApp number here and our team will contact you shortly.";
+
+      addMessage(whatsappMessage, "bot-message");
     }
-  }, 800);
+  }, typingDelay);
 }
 
 /* =========================================================
@@ -350,7 +370,7 @@ async function captureWhatsappNumber(userText) {
         "bot-message",
       );
     }
-  }, 600);
+  }, BOT_REPLY_DELAY);
 }
 
 /* =========================================================
@@ -457,11 +477,13 @@ function addMessage(text, className) {
 ========================================================= */
 
 function showTypingIndicator() {
+  botIsTyping = true;
+
   const typingDiv = document.createElement("div");
 
   typingDiv.className = "bot-message typing-indicator";
   typingDiv.id = "typingIndicator";
-  typingDiv.textContent = "Typing...";
+  typingDiv.textContent = "Kumar is typing...";
 
   chatbotMessages.appendChild(typingDiv);
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -473,6 +495,8 @@ function removeTypingIndicator() {
   if (typingIndicator) {
     typingIndicator.remove();
   }
+
+  botIsTyping = false;
 }
 
 /* =========================================================
